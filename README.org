@@ -1,0 +1,9 @@
+* lcov-converter
+Convert LCOV test code coverage files to CodeClimate JSON.
+
+Created because I misread the [[https://docs.gitlab.com/ee/user/project/merge_requests/code_quality.html][Gitlab CI documentation]] and completely glossed
+over that you couldn't just drop a CodeClimate JSON file as an artifact and have
+Gitlab CI show test coverage metrics..
+
+** Thanks
+To [[https://codeclimate.com/][CodeClimate]] for their [[https://github.com/codeclimate/test-reporter][test-reporter]] software.
