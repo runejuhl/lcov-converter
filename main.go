@@ -44,55 +44,6 @@ func (f CoverageFormatter) Save() error {
 }
 
 func main() {
-	formatter := lcov.Formatter{
-		Path: "target/coverage/lcov.info",
-	}
-
-	paths, err := formatter.Search()
-	if err != nil {
-		log.Fatalf("err: %s", err)
-	}
-
-	log.Printf("paths: %+v", paths)
-	report, err := formatter.Format()
-	if err != nil {
-		log.Fatalf("err: %s", err)
-	}
-
-	log.Printf("reports: %+v\n", report)
-
-	// e, err := env.New()
-	// if err != nil {
-	//	log.Fatalf("err: %s", err)
-	// }
-
-	// var gitHead, _ = env.GetHead()
-	// log.Printf("git: %+v\n", gitHead)
-
-	// m := map[string]interface{}{}
-
-	// g := structs.Map(e.Git)
-	// for k, v := range g {
-	//	m[k] = v
-	// }
-
-	// g = structs.Map(e.CI)
-	// for k, v := range g {
-	//	m[k] = v
-	// }
-
-	// j, err := json.Marshal(m)
-	// if err != nil {
-	//	log.Fatalf("err: %s", err)
-	// }
-
-	// j, err := e.MarshalJSON()
-	// if err != nil {
-	//	log.Fatalf("err: %s", err)
-	// }
-	// log.Printf("json: %s", j)
-	// ioutil.WriteFile("climate.json", j, 0644)
-
 	bb := &bytes.Buffer{}
 
 	cf := CoverageFormatter{
@@ -106,7 +57,7 @@ func main() {
 	}
 
 	log.Printf("would write now: %+v", cf)
-	err = cf.Save()
+	err := cf.Save()
 	if err != nil {
 		log.Fatalf("runFormatter failed: %s", err)
 	}
